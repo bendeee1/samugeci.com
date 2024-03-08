@@ -15,5 +15,16 @@
     </div>
 
     <script src="elemek.js"></script>
+        <script>
+        // Az IPv4 cím lekérdezése
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipv4 = data.ip;
+                console.log(ipv4); // Az IPv4 cím kiírása a konzolra
+                // Itt további műveleteket végezhetsz az IPv4 címmel
+            })
+            .catch(error => console.error('Hiba történt:', error));
+    </script>
 </body>
 </html>
