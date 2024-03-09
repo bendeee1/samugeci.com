@@ -15,3 +15,21 @@ let gomb = document.createElement('button');
 gomb.textContent="Dinamikus gomb"
 gomb.addEventListener('click',ujElem);
 document.body.appendChild(gomb);
+
+// Az IPv4 cím lekérdezése és megjelenítése
+fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        const ipv4 = data.ip;
+        // Az IPv4 cím megjelenítése a HTML oldalon
+        document.getElementById('output').textContent = ipv4;
+    })
+    .catch(error => console.error('Hiba történt:', error));
+
+// Az új elem létrehozása gombra kattintva
+function ujElem() {
+    const szoveg = document.getElementById('szoveg').value;
+    const ujElem = document.createElement('p');
+    ujElem.textContent = szoveg;
+    document.getElementById('output').appendChild(ujElem);
+}
